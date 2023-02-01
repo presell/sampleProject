@@ -89,7 +89,7 @@
           "projectId": "fZDBpiWqU61ZjNvhThHuFB",
           "renderModuleFilePath": "plasmic/blank_project/PlasmicSign.tsx",
           "importSpec": {
-            "modulePath": "../pages/new-page.tsx"
+            "modulePath": "../pages/sign.tsx"
           },
           "cssFilePath": "plasmic/blank_project/PlasmicSign.module.css",
           "scheme": "blackbox",
