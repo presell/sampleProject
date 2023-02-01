@@ -111,6 +111,7 @@ function PlasmicForm__RenderFunc(props: {
         data-plasmic-name={"textInput"}
         data-plasmic-override={overrides.textInput}
         className={classNames("__wab_instance", sty.textInput)}
+        name={"url" as const}
       />
 
       <button
