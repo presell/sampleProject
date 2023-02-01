@@ -89,7 +89,7 @@
           "projectId": "fZDBpiWqU61ZjNvhThHuFB",
           "renderModuleFilePath": "plasmic/blank_project/PlasmicSign.tsx",
           "importSpec": {
-            "modulePath": "../pages/sign/[id].tsx"
+            "modulePath": "../pages/sign.tsx"
           },
           "cssFilePath": "plasmic/blank_project/PlasmicSign.module.css",
           "scheme": "blackbox",
@@ -164,7 +164,8 @@
           "name": "GraphqlFetcher",
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
