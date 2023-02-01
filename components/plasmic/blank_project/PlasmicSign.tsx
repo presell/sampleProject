@@ -34,6 +34,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import { DataFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: ae7V86eNoXA/codeComponent
 import Signup from "../../Signup"; // plasmic-import: 9g7i6FSBWB/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -52,8 +53,10 @@ export const PlasmicSign__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSign__OverridesType = {
   root?: p.Flex<"div">;
-  text?: p.Flex<"div">;
+  httpApiFetcher?: p.Flex<typeof DataFetcher>;
+  form?: p.Flex<"form">;
   signup?: p.Flex<typeof Signup>;
+  text?: p.Flex<"div">;
 };
 
 export interface DefaultSignProps {}
@@ -111,6 +114,61 @@ function PlasmicSign__RenderFunc(props: {
             sty.root
           )}
         >
+          <DataFetcher
+            data-plasmic-name={"httpApiFetcher"}
+            data-plasmic-override={overrides.httpApiFetcher}
+            className={classNames("__wab_instance", sty.httpApiFetcher)}
+            dataName={"fetchedData" as const}
+            errorDisplay={
+              <ph.DataCtxReader>
+                {$ctx => "Error fetching data"}
+              </ph.DataCtxReader>
+            }
+            headers={{
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: "Bearer keyVDvhyVSx5Ntbl3"
+            }}
+            loadingDisplay={
+              <ph.DataCtxReader>{$ctx => "Loading..."}</ph.DataCtxReader>
+            }
+            method={"GET" as const}
+            noLayout={false}
+            url={(() => {
+              try {
+                return (
+                  "https://api.airtable.com/v0/appmM1mMqcDvugXhY/Requests/" +
+                  $ctx.params.id
+                );
+              } catch (e) {
+                if (e instanceof TypeError) {
+                  return "https://api.airtable.com/v0/appmM1mMqcDvugXhY/Requests?id";
+                }
+                throw e;
+              }
+            })()}
+          >
+            <ph.DataCtxReader>
+              {$ctx => (
+                <form
+                  data-plasmic-name={"form"}
+                  data-plasmic-override={overrides.form}
+                  action={
+                    "https://hook.us1.make.com/o91gaw2kgt1xmrf7ae6iw24ou6uvuw1b" as const
+                  }
+                  className={classNames(projectcss.all, sty.form)}
+                  method={"post" as const}
+                >
+                  <Signup
+                    data-plasmic-name={"signup"}
+                    data-plasmic-override={overrides.signup}
+                    className={classNames("__wab_instance", sty.signup)}
+                  />
+                </form>
+              )}
+            </ph.DataCtxReader>
+          </DataFetcher>
+
           <div
             data-plasmic-name={"text"}
             data-plasmic-override={overrides.text}
@@ -122,12 +180,6 @@ function PlasmicSign__RenderFunc(props: {
           >
             {"Sign UP Form"}
           </div>
-
-          <Signup
-            data-plasmic-name={"signup"}
-            data-plasmic-override={overrides.signup}
-            className={classNames("__wab_instance", sty.signup)}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -135,17 +187,21 @@ function PlasmicSign__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "signup"],
-  text: ["text"],
-  signup: ["signup"]
+  root: ["root", "httpApiFetcher", "form", "signup", "text"],
+  httpApiFetcher: ["httpApiFetcher", "form", "signup"],
+  form: ["form", "signup"],
+  signup: ["signup"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
+  httpApiFetcher: typeof DataFetcher;
+  form: "form";
   signup: typeof Signup;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -209,8 +265,10 @@ export const PlasmicSign = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
+    httpApiFetcher: makeNodeComponent("httpApiFetcher"),
+    form: makeNodeComponent("form"),
     signup: makeNodeComponent("signup"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicSign
     internalVariantProps: PlasmicSign__VariantProps,

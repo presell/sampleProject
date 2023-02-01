@@ -107,10 +107,22 @@ function PlasmicSignup__RenderFunc(props: {
     >
       <TextInput
         className={classNames("__wab_instance", sty.textInput__pyhve)}
+        name={"email" as const}
       />
 
       <TextInput
         className={classNames("__wab_instance", sty.textInput__lkquj)}
+        defaultValue={(() => {
+          try {
+            return $ctx.fetchedData.fields.Submitted_URL;
+          } catch (e) {
+            if (e instanceof TypeError) {
+              return undefined;
+            }
+            throw e;
+          }
+        })()}
+        name={"fetchurl" as const}
       />
 
       <button
