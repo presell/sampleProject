@@ -1,0 +1,44 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+.textInput__pyhve:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__vj434 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__vTdXk {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.textInput__lkquj:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.svg__u8Vr {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__c1AfJ {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.button {
+  position: relative;
+}
